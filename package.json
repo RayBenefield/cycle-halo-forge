@@ -15,12 +15,13 @@
         "url": "https://github.com/RayBenefield/halo-forge/issues"
     },
     "license": "MIT",
-    "main": "src/halo-forge.js",
+    "main": "src/index.js",
     "engines": {
         "node": ">= 0.10.26",
         "npm": ">=1.4.3"
     },
     "scripts": {
+        "dev": "rimraf build/ && mkdir -p build/ && cp src/index.html build/index.html && concurrently \"lite-server -c .lite-server.json\" \"watchify src/index.js -o build/bundle.js -t [ babelify — presets [ es2015 stage-0] ]\"",
         "test": "jest --watch",
         "lint": "eslint -c .eslintrc src/",
         "build": "babel src -d dist",
