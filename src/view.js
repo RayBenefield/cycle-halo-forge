@@ -7,7 +7,7 @@ import {
     greyText, absolute, bottom05, right1, mAuto, pl2, vMid,
 } from './styles';
 
-const cardSize = { width: 320, height: 120 };
+const cardSize = { width: '20rem', height: '7.5rem' };
 
 export default state$ => ({
     DOM: state$.map(post =>
