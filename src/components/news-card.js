@@ -8,6 +8,7 @@ import {
 } from '../styles';
 
 const cardSize = { width: '20rem', height: '7.5rem' };
+const time = require('time-ago')();
 
 export default ({ props: post }) => ({
     DOM: div($(mAuto), [
@@ -20,7 +21,7 @@ export default ({ props: post }) => ({
                         div($(h15), [
                             sub($(greyText, absolute, bottom05, right1), [
                                 a(_({ href: post.source.url }), [
-                                    `${post.added} • ${post.source.name} `,
+                                    `${time.ago(post.added)} • ${post.source.name} `,
                                     img(merge(_({ href: post.image }), $(pl2, vMid, w2, h2))),
                                 ]),
                             ]),
