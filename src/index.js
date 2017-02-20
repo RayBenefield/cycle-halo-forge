@@ -5,7 +5,7 @@ import view from './view';
 import intent from './intent';
 
 function main(sources) {
-    return view(model(intent(sources)));
+    return view(sources, model(intent(sources)));
 }
 
 const drivers = {
