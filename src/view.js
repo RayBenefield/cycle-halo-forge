@@ -1,8 +1,9 @@
+import xs from 'xstream';
 import { div } from '@cycle/dom';
 import card from './components/news-card';
 
-export default (sources, state$) => ({
-    DOM: state$.map(state =>
-        div(state.posts.map(post => card({ props: post }).DOM))
+export default ({ DOM }, state$) => ({
+    DOM: state$.flatten(state =>
+        state.posts.map(post => card({ DOM, props: xs.from([post]) }).DOM)
     ),
 });
